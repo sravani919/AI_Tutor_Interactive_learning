@@ -238,7 +238,7 @@ To reproduce the experiments described in the paper:
 
 # Research Artifacts
 
-This repository contains the primary research artifacts used in the paper.
+This repository contains the code, generated instructional dataset, preprocessing pipeline, and evaluation notebooks necessary to reproduce the experiments described in the accompanying paper.
 
 Included artifacts:
 
@@ -251,7 +251,7 @@ Included artifacts:
 - User-study analysis notebooks
 - Participant questionnaires
 - Documentation
-This repository contains the code, generated instructional dataset, preprocessing pipeline, and evaluation notebooks necessary to reproduce the experiments described in the accompanying paper.
+
 ---
 
 # Data
@@ -308,4 +308,4 @@ GitHub:
 https://github.com/sravani919
 
 Email:
-*(spati@clemson.edu)*
+(spati@clemson.edu)
