@@ -1,47 +1,58 @@
 # Textbook Tutor: Interactive Textbook Learning with Retrieval-Augmented Generation
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sravani919/AI_Tutor_Interactive_learning/blob/main/latestcoding.ipynb)
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Research](https://img.shields.io/badge/Research-EMNLP%202026-orange)
 
-Companion repository for the paper:
+---
 
-**Interactive Textbook Learning with Retrieval-Augmented Generation: The Role of Instructional Structure**
+## Companion Repository
 
-(Currently under review)
+This repository accompanies the paper:
 
 > **Interactive Textbook Learning with Retrieval-Augmented Generation: The Role of Instructional Structure**
+
+**Authors**
+- Sravani Pati
+- Carlos Toxtli Hernandez
+
+*(Under review at EMNLP 2026)*
 
 ---
 
 # Overview
 
-This repository contains the implementation of **Textbook Tutor**, an interactive AI tutoring system that transforms static textbook chapters into multiple instructional learning formats using a reproducible **Textbook-to-Interaction (T2I)** pipeline.
+This repository contains the implementation of **Textbook Tutor**, an interactive AI tutoring system that transforms static textbook chapters into multiple instructional learning formats through a reproducible **Textbook-to-Interaction (T2I)** pipeline.
 
-The system converts textbook chapters into:
+The system automatically converts textbook chapters into:
 
 - Chapter summaries
-- Question-answer pairs
+- Chapter-specific question-answer pairs
 - Storytelling modules
 - Business case simulations
 - Interactive challenges
 - Chapter-aware tutoring
 
-The project investigates how instructional structure and retrieval-augmented generation support interactive textbook learning under lightweight computational settings.
+The accompanying paper investigates how **instructional structure**, **retrieval grounding**, and **lightweight deployment** influence interactive textbook learning under resource-constrained settings.
+
+The experiments and user study reported in the paper were conducted using the **Google Colab prototype**. The included Streamlit application represents a lightweight deployment of the same T2I pipeline.
 
 ---
 
 # Repository Contents
 
-This repository contains:
+This repository includes:
 
-- Source code for the tutoring system
-- Streamlit application
+- Source code
 - Google Colab prototype
-- DeepSeek dataset generation notebooks
+- Streamlit application
+- DeepSeek preprocessing pipeline
 - Generated instructional dataset
-- Retrieval evaluation notebooks
-- User study analysis notebooks
+- Evaluation notebooks
+- User study analysis
 - Participant questionnaires
-- Project documentation
+- Documentation
 
 ---
 
@@ -59,8 +70,8 @@ AI_Tutor_Interactive_learning/
 ├── latestcoding.ipynb
 ├── AITUTORFINALVERSION.ipynb
 ├── AI_TUTOR_METRICS.ipynb
-├── AI_tutor_Analysis.ipynb
 ├── Updated_AI_Tutor_metrics.ipynb
+├── AI_tutor_Analysis.ipynb
 │
 ├── initialDeepSeek for Question & Summary Generation.ipynb
 ├── deepseekgenerating questionand asnwer.ipynb
@@ -68,20 +79,21 @@ AI_Tutor_Interactive_learning/
 ├── AI Tutor Experience Feedback.csv
 ├── Pre-Assessment AI tutor.csv
 │
-└── AI TUTOR MINI GUIDE.pdf
+├── AI TUTOR MINI GUIDE.pdf
+└── Updatedguide.pdf
 ```
 
 ---
 
-# Textbook-to-Interaction Pipeline
+# Textbook-to-Interaction (T2I) Pipeline
 
-The pipeline consists of four stages.
+The Textbook Tutor pipeline consists of four stages.
 
 ## Stage 1 — Offline Content Preparation
 
 - Extract textbook chapters using PyMuPDF.
-- Generate chapter summaries.
-- Generate chapter-specific question-answer pairs using DeepSeek.
+- Generate chapter summaries using DeepSeek.
+- Generate up to five chapter-specific question-answer pairs.
 - Construct the instructional dataset.
 
 Output:
@@ -94,43 +106,43 @@ Merged_Chapter_Dataset.csv
 
 ## Stage 2 — Instructional Transformation
 
-The generated instructional dataset is transformed into multiple instructional formats:
+The generated instructional dataset is transformed into multiple instructional formats, including:
 
 - Storytelling
 - Business case simulations
 - Flashcards
 - Multiple-choice quizzes
-- Fill-in-the-blank activities
-- Matching challenges
-- Timed quizzes
-- Scenario reasoning
+- Fill-in-the-blank exercises
+- Matching activities
+- Timed questions
+- Scenario-based reasoning
 
 ---
 
 ## Stage 3 — Retrieval-Grounded Tutoring
 
-The tutoring system retrieves chapter summaries and generated question-answer pairs using lightweight retrieval before producing responses.
+The tutoring system retrieves chapter summaries and generated question-answer pairs before generating responses.
 
-The paper evaluates:
+The experiments reported in the accompanying paper evaluate lightweight lexical retrieval methods:
 
 - TF-IDF
 - BM25
 - Hybrid lexical retrieval
 
-Earlier development notebooks also include experiments using semantic retrieval (MiniLM + FAISS). The experiments reported in the paper correspond to the retrieval configurations described in the manuscript.
+Earlier development notebooks also include experiments using semantic retrieval (MiniLM + FAISS). These notebooks are retained for completeness but are **not** the retrieval configuration evaluated in the paper.
 
 ---
 
 ## Stage 4 — Interactive Tutoring
 
-The generated instructional dataset powers:
+The generated instructional dataset supports:
 
 - Storytelling
-- Business scenarios
+- Business case simulations
 - Interactive quizzes
 - Chapter-aware tutoring
 - Progress tracking
-- XP system
+- XP-based learning analytics
 
 ---
 
@@ -141,7 +153,7 @@ The generated instructional dataset powers:
 | Language Models | DeepSeek, Mistral-7B, Falcon-RW-1B |
 | Retrieval | TF-IDF, BM25 |
 | Framework | Streamlit |
-| Libraries | Transformers, Pandas, PyMuPDF |
+| Libraries | Transformers, PyMuPDF, Pandas |
 | Development | Google Colab |
 | Deployment | Streamlit, FastAPI |
 
@@ -149,14 +161,16 @@ The generated instructional dataset powers:
 
 # Dataset Generation
 
-The instructional dataset is automatically generated from the OpenStax *Workplace Software and Skills* textbook.
+The instructional dataset is automatically generated from the OpenStax **Workplace Software and Skills** textbook.
 
 Pipeline:
 
 1. Extract textbook chapters.
-2. Generate chapter summaries using DeepSeek.
-3. Generate up to five chapter-specific question-answer pairs.
-4. Export to:
+2. Generate chapter summaries.
+3. Generate chapter-specific question-answer pairs.
+4. Export the instructional dataset.
+
+Output:
 
 ```
 Merged_Chapter_Dataset.csv
@@ -164,11 +178,12 @@ Merged_Chapter_Dataset.csv
 
 The generated dataset supports:
 
-- tutoring
+- chapter-aware tutoring
 - storytelling
+- business scenarios
 - interactive quizzes
 - concept assessment
-- chapter-aware retrieval
+- retrieval-grounded learning
 
 ---
 
@@ -182,7 +197,7 @@ pip install -r requirements.txt
 
 ---
 
-## Launch Streamlit
+## Launch the Streamlit Application
 
 ```bash
 streamlit run app.py
@@ -190,9 +205,9 @@ streamlit run app.py
 
 ---
 
-## Google Colab
+## Run the Google Colab Prototype
 
-The notebook can also be executed directly:
+Launch directly from Colab:
 
 https://colab.research.google.com/github/sravani919/AI_Tutor_Interactive_learning/blob/main/latestcoding.ipynb
 
@@ -200,40 +215,59 @@ https://colab.research.google.com/github/sravani919/AI_Tutor_Interactive_learnin
 
 # Reproducing the Paper
 
-To reproduce the experiments reported in the paper:
+To reproduce the experiments described in the paper:
 
-1. Install the required packages.
-2. Download the OpenStax Workplace Software and Skills textbook.
-3. Run the DeepSeek preprocessing notebooks.
-4. Generate:
+1. Install the required Python packages.
 
-   - chapter summaries
-   - question-answer pairs
+2. Download the OpenStax *Workplace Software and Skills* textbook.
+
+3. Run the preprocessing notebooks to:
+
+   - extract textbook chapters
+   - generate chapter summaries
+   - generate question-answer pairs
+
+4. Construct the instructional dataset.
 
 5. Launch the tutoring application.
-6. Run the evaluation notebooks.
+
+6. Run the evaluation notebooks to reproduce retrieval and user-study analyses.
 
 ---
 
 # Research Artifacts
 
-This repository includes:
+This repository contains the primary research artifacts used in the paper.
+
+Included artifacts:
 
 - Source code
-- Generated instructional dataset
-- Prompt generation notebooks
-- Evaluation notebooks
-- User-study analysis
-- Participant questionnaires
 - Streamlit application
+- Google Colab prototype
+- Generated instructional dataset
+- DeepSeek preprocessing notebooks
+- Evaluation notebooks
+- User-study analysis notebooks
+- Participant questionnaires
+- Documentation
+
+---
+
+# Data
+
+The instructional dataset (`Merged_Chapter_Dataset.csv`) was generated from the OpenStax **Workplace Software and Skills** textbook using the preprocessing pipeline provided in this repository.
+
+The original textbook is distributed by OpenStax under its applicable license and should be obtained directly from the OpenStax website.
 
 ---
 
 # Limitations
 
-Some advanced language models (e.g., Mistral-7B) were originally executed on Clemson University's Palmetto HPC cluster.
+The experiments reported in the accompanying paper were conducted using the Google Colab prototype.
 
-The public repository provides the complete preprocessing pipeline together with lightweight deployment suitable for reproduction and experimentation.
+The repository additionally includes a lightweight Streamlit deployment implementing the same Textbook-to-Interaction pipeline.
+
+Some larger language models (e.g., Mistral-7B) were originally executed on Clemson University's Palmetto HPC cluster during development.
 
 ---
 
@@ -244,7 +278,7 @@ Future work includes:
 - adaptive instructional strategies
 - longitudinal classroom studies
 - larger educational datasets
-- additional retrieval methods
+- expanded retrieval methods
 - multimodal instructional content
 
 ---
@@ -254,25 +288,30 @@ Future work includes:
 If you use this repository, please cite:
 
 ```bibtex
-@inproceedings{pati2026textbook,
+@misc{pati2026textbook,
   title={Interactive Textbook Learning with Retrieval-Augmented Generation: The Role of Instructional Structure},
-  author={Pati, Sravani and Hernandez, Carlos Toxtli},
-  booktitle={Proceedings of EMNLP},
-  year={2026}
+  author={Sravani Pati and Carlos Toxtli Hernandez},
+  year={2026},
+  note={Under review}
 }
 ```
+
+(Replace with the final EMNLP citation after publication.)
 
 ---
 
 # License
 
-This repository is released under the MIT License.
+This project is released under the **MIT License**.
 
 ---
 
 # Contact
 
-Sravani Pati
+**Sravani Pati**
 
 GitHub:
 https://github.com/sravani919
+
+Email:
+*(spati@clemson.edu)*
