@@ -9,7 +9,8 @@
 
 ## Companion Repository
 
-This repository accompanies the paper:
+Research repository accompanying the paper:
+
 
 > **Interactive Textbook Learning with Retrieval-Augmented Generation: The Role of Instructional Structure**
 
@@ -250,7 +251,7 @@ Included artifacts:
 - User-study analysis notebooks
 - Participant questionnaires
 - Documentation
-
+This repository contains the code, generated instructional dataset, preprocessing pipeline, and evaluation notebooks necessary to reproduce the experiments described in the accompanying paper.
 ---
 
 # Data
@@ -284,14 +285,12 @@ Future work includes:
 ---
 
 
-
 # Citation
 
 Citation information will be updated after publication.
 
 If you use this repository before publication, please cite the associated manuscript.
 
-(Replace with the final EMNLP citation after publication.)
 
 ---
 
