@@ -1,130 +1,274 @@
-# AI_Tutor_Interactive_learning
+# Textbook Tutor: Interactive Textbook Learning with Retrieval-Augmented Generation
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sravani919/AI_Tutor_Interactive_learning/blob/main/latestcoding.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sravani919/AI_Tutor_Interactive_learning/blob/main/latestcoding.ipynb)
 
+Official implementation of the paper:
 
-
-
-
-
-# AI Tutor – Interactive Learning System
-
-**Transforming traditional textbook content into adaptive, engaging, and intelligent learning experiences**
+> **Interactive Textbook Learning with Retrieval-Augmented Generation: The Role of Instructional Structure**
 
 ---
 
-## 📘 Project Overview
+# Overview
 
-This AI-powered tutor transforms the *Workplace Software and Skills* textbook into a fully interactive, chapter-wise learning experience. Instead of passive reading, learners can engage in storytelling, business scenarios, gamified quizzes, and more—powered entirely by AI models.
+This repository contains the implementation of **Textbook Tutor**, an interactive AI tutoring system that transforms static textbook chapters into multiple instructional learning formats using a reproducible **Textbook-to-Interaction (T2I)** pipeline.
 
-This project demonstrates how AI can revolutionize education by offering dynamic learning paths, real-time feedback, and cognitive engagement using large-scale models, without requiring manual curation of content.
+The system converts textbook chapters into:
 
----
+- Chapter summaries
+- Question-answer pairs
+- Storytelling modules
+- Business case simulations
+- Interactive challenges
+- Chapter-aware tutoring
 
-## 🚀 Live Demo
-
-> ✅ [Launch on Google Colab (Public)](https://colab.research.google.com/github/sravani919/AI_Tutor_Interactive_learning/blob/main/latestcoding.ipynb)
-
-**Note:**  
-Deployment is in progress. Advanced models like Mistral-7B currently run locally on high-performance compute clusters. The public version on Colab is fully functional with most learning modes available for exploration.
-
----
-
-## ⚙️ Technology Stack
-
-| Layer            | Technology Used                                              |
-|------------------|--------------------------------------------------------------|
-| Language Models  | `Mistral-7B`, `DeepSeek Coder-6.7B`, HuggingFace Pipelines   |
-| Retrieval        | `FAISS` (semantic vector store)                              |
-| Embeddings       | `sentence-transformers/all-MiniLM-L6-v2`                     |
-| Frameworks       | `LangChain`, `Transformers`, `ipywidgets`, `Matplotlib`      |
-| APIs             | Google Custom Search API                                     |
-| Interface        | Google Colab UI (Widgets, HTML, Charts)                      |
-| Deployment       | Colab (Public), Clemson Palmetto HPC (Private), Cloud-ready |
+The project investigates how instructional structure and retrieval-augmented generation support interactive textbook learning under lightweight computational settings.
 
 ---
 
-## 📚 Dataset Generation Pipeline
+# Repository Contents
 
-To support intelligent interactivity, a custom dataset was automatically generated from a 1000+ page PDF textbook:
+This repository contains:
 
-1. **PDF Text Extraction:**  
-   Used `PyMuPDF` to extract raw text and split into chapters.
-
-2. **LLM-Based Question and Summary Generation:**  
-   Applied `DeepSeek Coder 6.7B` locally to generate:
-   - 5+ questions per chapter
-   - Chapter summaries  
-   Token usage was optimized with timeout handling and max-length constraints.
-
-3. **Exporting Dataset:**  
-   Final outputs were saved as JSON and consolidated into a `Merged_Chapter_Dataset.csv` for use by the AI tutor.
+- Source code for the tutoring system
+- Streamlit application
+- Google Colab prototype
+- DeepSeek dataset generation notebooks
+- Generated instructional dataset
+- Retrieval evaluation notebooks
+- User study analysis notebooks
+- Participant questionnaires
+- Project documentation
 
 ---
 
-## 🧠 Learning Modes Available
+# Repository Structure
 
-| Mode                      | Description                                                  |
-|---------------------------|--------------------------------------------------------------|
-| Business Case Generator   | Real-world company scenarios from each chapter               |
-| AI-Powered Storytelling   | Contextual business stories with characters and challenges    |
-| Flashcards                | Flip-based practice for quick recall                          |
-| Multiple Choice Quizzes   | Auto-generated MCQs with instant feedback                     |
-| Fill in the Blank         | Gamified sentence completion with distractors                |
-| Matching Challenge        | Match questions to correct answers                            |
-| Timed Questions           | Countdown-based recall drills                                 |
-| Scenario Reasoning        | Workplace decision simulations with hints                     |
-| AI Chat Support           | Conversation with an AI tutor about any chapter               |
-| XP Dashboard              | Tracks XP, level, progress, badges, and performance           |
-
----
-
-## 🎯 Key Features
-
-- Adaptive, multi-modal learning system
-- Zero manual content creation – fully LLM-driven
-- XP system with levels, badges, history, and analytics
-- Designed to scale to any subject or organization
-- Supports real-time AI search, summaries, and guidance
-- Personalized learner profile and chapter tracking
-
----
-
-## 💡 Infrastructure & Performance
-
-- **Locally**, the full version runs on **Clemson Palmetto Supercomputing Cluster** for real-time AI inference using Mistral-7B and DeepSeek.
-- **Public Colab version** uses smaller models and APIs for broader accessibility.
-- The system can be deployed in cloud environments such as **AWS**, **Azure**, or **Google Cloud** for enterprise use cases.
+```
+AI_Tutor_Interactive_learning/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+│
+├── Merged_Chapter_Dataset.csv
+│
+├── latestcoding.ipynb
+├── AITUTORFINALVERSION.ipynb
+├── AI_TUTOR_METRICS.ipynb
+├── AI_tutor_Analysis.ipynb
+├── Updated_AI_Tutor_metrics.ipynb
+│
+├── initialDeepSeek for Question & Summary Generation.ipynb
+├── deepseekgenerating questionand asnwer.ipynb
+│
+├── AI Tutor Experience Feedback.csv
+├── Pre-Assessment AI tutor.csv
+│
+└── AI TUTOR MINI GUIDE.pdf
+```
 
 ---
 
-## ✅ Use Cases
+# Textbook-to-Interaction Pipeline
 
-| Application Area        | Benefit                                                 |
-|-------------------------|----------------------------------------------------------|
-| Schools and Universities | Convert any textbook into interactive AI content         |
-| Corporate Training      | Scenario-based onboarding, quizzes, and automation        |
-| Ed-Tech Platforms       | Scalable, gamified content generation                     |
-| Self-Learning Platforms | 24/7 AI tutor with contextual understanding               |
+The pipeline consists of four stages.
 
----
+## Stage 1 — Offline Content Preparation
 
-## 🧪 Future Work
+- Extract textbook chapters using PyMuPDF.
+- Generate chapter summaries.
+- Generate chapter-specific question-answer pairs using DeepSeek.
+- Construct the instructional dataset.
 
-- Fine-tune domain-specific LLMs for even more contextual accuracy
-- Build a dedicated web app for broader adoption
-- Integrate with LMS platforms (e.g., Moodle, Canvas)
-- Extend support for video, diagram, and audio generation
+Output:
 
----
-
-## 📝 Author Notes
-
-This system was created using freely available tools and open-source models, showcasing what is possible even without enterprise-level funding. It demonstrates complex architectural thinking, end-to-end data generation, and interactive deployment—all adaptable to any scale or domain.
-
-The project represents a blueprint that can be deployed across industries, making learning more accessible and intelligent.
+```
+Merged_Chapter_Dataset.csv
+```
 
 ---
 
-## 📂 Repository Structure
+## Stage 2 — Instructional Transformation
 
+The generated instructional dataset is transformed into multiple instructional formats:
+
+- Storytelling
+- Business case simulations
+- Flashcards
+- Multiple-choice quizzes
+- Fill-in-the-blank activities
+- Matching challenges
+- Timed quizzes
+- Scenario reasoning
+
+---
+
+## Stage 3 — Retrieval-Grounded Tutoring
+
+The tutoring system retrieves chapter summaries and generated question-answer pairs using lightweight retrieval before producing responses.
+
+The paper evaluates:
+
+- TF-IDF
+- BM25
+- Hybrid lexical retrieval
+
+Earlier development notebooks also include experiments using semantic retrieval (MiniLM + FAISS). The experiments reported in the paper correspond to the retrieval configurations described in the manuscript.
+
+---
+
+## Stage 4 — Interactive Tutoring
+
+The generated instructional dataset powers:
+
+- Storytelling
+- Business scenarios
+- Interactive quizzes
+- Chapter-aware tutoring
+- Progress tracking
+- XP system
+
+---
+
+# Technology Stack
+
+| Component | Technology |
+|------------|------------|
+| Language Models | DeepSeek, Mistral-7B, Falcon-RW-1B |
+| Retrieval | TF-IDF, BM25 |
+| Framework | Streamlit |
+| Libraries | Transformers, Pandas, PyMuPDF |
+| Development | Google Colab |
+| Deployment | Streamlit, FastAPI |
+
+---
+
+# Dataset Generation
+
+The instructional dataset is automatically generated from the OpenStax *Workplace Software and Skills* textbook.
+
+Pipeline:
+
+1. Extract textbook chapters.
+2. Generate chapter summaries using DeepSeek.
+3. Generate up to five chapter-specific question-answer pairs.
+4. Export to:
+
+```
+Merged_Chapter_Dataset.csv
+```
+
+The generated dataset supports:
+
+- tutoring
+- storytelling
+- interactive quizzes
+- concept assessment
+- chapter-aware retrieval
+
+---
+
+# Running the Project
+
+## Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Launch Streamlit
+
+```bash
+streamlit run app.py
+```
+
+---
+
+## Google Colab
+
+The notebook can also be executed directly:
+
+https://colab.research.google.com/github/sravani919/AI_Tutor_Interactive_learning/blob/main/latestcoding.ipynb
+
+---
+
+# Reproducing the Paper
+
+To reproduce the experiments reported in the paper:
+
+1. Install the required packages.
+2. Download the OpenStax Workplace Software and Skills textbook.
+3. Run the DeepSeek preprocessing notebooks.
+4. Generate:
+
+   - chapter summaries
+   - question-answer pairs
+
+5. Launch the tutoring application.
+6. Run the evaluation notebooks.
+
+---
+
+# Research Artifacts
+
+This repository includes:
+
+- Source code
+- Generated instructional dataset
+- Prompt generation notebooks
+- Evaluation notebooks
+- User-study analysis
+- Participant questionnaires
+- Streamlit application
+
+---
+
+# Limitations
+
+Some advanced language models (e.g., Mistral-7B) were originally executed on Clemson University's Palmetto HPC cluster.
+
+The public repository provides the complete preprocessing pipeline together with lightweight deployment suitable for reproduction and experimentation.
+
+---
+
+# Future Work
+
+Future work includes:
+
+- adaptive instructional strategies
+- longitudinal classroom studies
+- larger educational datasets
+- additional retrieval methods
+- multimodal instructional content
+
+---
+
+# Citation
+
+If you use this repository, please cite:
+
+```bibtex
+@inproceedings{pati2026textbook,
+  title={Interactive Textbook Learning with Retrieval-Augmented Generation: The Role of Instructional Structure},
+  author={Pati, Sravani and Hernandez, Carlos Toxtli},
+  booktitle={Proceedings of EMNLP},
+  year={2026}
+}
+```
+
+---
+
+# License
+
+This repository is released under the MIT License.
+
+---
+
+# Contact
+
+Sravani Pati
+
+GitHub:
+https://github.com/sravani919
