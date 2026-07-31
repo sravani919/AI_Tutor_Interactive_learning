@@ -7,6 +7,14 @@
 
 ---
 
+## DOI
+
+The software, generated instructional dataset, and research artifacts are archived on Zenodo.
+
+**DOI:** https://doi.org/10.5281/zenodo.21715204
+
+---
+
 ## Companion Repository
 
 Research repository accompanying the paper:
