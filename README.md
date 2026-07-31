@@ -2,7 +2,11 @@
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sravani919/AI_Tutor_Interactive_learning/blob/main/latestcoding.ipynb)
 
-Official implementation of the paper:
+Companion repository for the paper:
+
+**Interactive Textbook Learning with Retrieval-Augmented Generation: The Role of Instructional Structure**
+
+(Currently under review)
 
 > **Interactive Textbook Learning with Retrieval-Augmented Generation: The Role of Instructional Structure**
 
