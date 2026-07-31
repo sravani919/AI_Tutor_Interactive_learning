@@ -1,10 +1,10 @@
 # Textbook Tutor: Interactive Textbook Learning with Retrieval-Augmented Generation
 
-[![Open in Colab](...)](...)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sravani919/AI_Tutor_Interactive_learning/blob/main/latestcoding.ipynb)
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Research](https://img.shields.io/badge/Research-EMNLP%202026-orange)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21715204.svg)](https://doi.org/10.5281/zenodo.21715204)
+
 
 ---
 
