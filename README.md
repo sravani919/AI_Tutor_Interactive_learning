@@ -283,18 +283,13 @@ Future work includes:
 
 ---
 
+
+
 # Citation
 
-If you use this repository, please cite:
+Citation information will be updated after publication.
 
-```bibtex
-@misc{pati2026textbook,
-  title={Interactive Textbook Learning with Retrieval-Augmented Generation: The Role of Instructional Structure},
-  author={Sravani Pati and Carlos Toxtli Hernandez},
-  year={2026},
-  note={Under review}
-}
-```
+If you use this repository before publication, please cite the associated manuscript.
 
 (Replace with the final EMNLP citation after publication.)
 
